@@ -29,5 +29,8 @@
     <ClInclude Include="UIBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UIWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
