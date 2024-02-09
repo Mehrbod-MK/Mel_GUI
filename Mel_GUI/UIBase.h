@@ -19,8 +19,13 @@ namespace Mel
 		typedef struct Transform
 		{
 		public: 
+			// Translation (Positional) values.
 			float translationX, translationY, translationZ;
+
+			// Rotation values.
 			float rotationX, rotationY, rotationZ;
+
+			// Scale values.
 			float scaleX, scaleY, scaleZ;
 		};
 
@@ -28,6 +33,7 @@ namespace Mel
 		class UIBase
 		{
 		private:
+			// The transform of the object.
 			Transform transform;
 
 		public:
