@@ -72,19 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\Mehrbod_MK\Documents\Visual Studio 2022\Projects\Mel_GUI\Mel_GUI\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -150,8 +154,10 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stb.cpp" />
+    <ClCompile Include="UIWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Diagnostic.h" />
     <ClInclude Include="UIBase.h" />
     <ClInclude Include="UIWindow.h" />
   </ItemGroup>

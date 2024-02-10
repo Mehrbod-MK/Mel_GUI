@@ -16,7 +16,7 @@ namespace Mel
 	{
 
 		// Structure for holding the transform information of a graphical object.
-		typedef struct Transform
+		typedef struct TransformStruct
 		{
 		public: 
 			// Translation (Positional) values.
@@ -27,7 +27,14 @@ namespace Mel
 
 			// Scale values.
 			float scaleX, scaleY, scaleZ;
-		};
+		} Transform;
+
+		// Structure for holding an x, y, z point in space.
+		typedef struct PointStruct
+		{
+		public:
+			float x, y, z;
+		} Point;
 
 		// Base abstract class (inteface) for all UI objects. This class cannot be instantiated.
 		class UIBase
