@@ -35,8 +35,13 @@ namespace Mel
 		public:
 			float x, y, z;
 		} Point;
-
 		
+		// Structure for holding width, height and depth values for size in space.
+		typedef struct SizeStruct
+		{
+		public:
+			float width, height, depth;
+		} Size;
 
 		// Base abstract class (inteface) for all UI objects. This class cannot be instantiated.
 		class UIBase
@@ -44,6 +49,9 @@ namespace Mel
 		private:
 			// The transform of the object.
 			Transform transform;
+
+			// Position and size of object.
+
 
 		public:
 			
