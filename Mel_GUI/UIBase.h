@@ -51,7 +51,12 @@ namespace Mel
 			Transform transform;
 
 			// Position and size of object.
+			Point	location;
+			Size	size;
 
+			// Shader Object.
+
+			// Texture Object.
 
 		public:
 			

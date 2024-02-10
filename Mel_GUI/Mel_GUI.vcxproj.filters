@@ -30,6 +30,9 @@
     <ClCompile Include="UIWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UIBase.h">
@@ -41,11 +44,19 @@
     <ClInclude Include="Diagnostic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.mmkvertshd">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="default.mmkfragshd" />
+    <None Include="default.mmkfragshd">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
