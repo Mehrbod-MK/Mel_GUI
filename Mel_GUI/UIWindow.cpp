@@ -47,12 +47,18 @@ Mel::GUI::UIWindow::UIWindow()
 		UIWindow::isGLFWInitialized = true;
 		count_UIWindows++;
 	}
+
+	this->FPS = 30.0;
+	this->timeNow = glfwGetTime();
 }
 
 // Copy UIWindow ctor.
 Mel::GUI::UIWindow::UIWindow(const UIWindow & other) 
 { 
 	this->windowHandle = NULL;
+
+	this->FPS = 30.0;
+	this->timeNow = glfwGetTime();
 }
 
 // UIWindow Dtor.
@@ -103,6 +109,64 @@ void Mel::GUI::UIWindow::Render()
 	if(glfwGetCurrentContext() != this->windowHandle)
 		glfwMakeContextCurrent(this->windowHandle);
 
+	if (!this->isGLADInitialized)
+	{
+		// Check GLAD status.
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			Diagnostics::Logger::Log_Message_Error("Failed to setup GLAD.", -2);
+			exit(-2);
+		}
+
+		// Set OpenGL viewport.
+		glViewport(NULL, NULL, 
+			(GLsizei)this->window_Width, (GLsizei)this->window_Height);
+
+		// Set OnFrameBufferResize callback.
+		static auto callback_static = [this](GLFWwindow* window, int width, int height)
+			{
+				CB_OnFrameBufferResize(window, width, height);
+			};
+		glfwSetFramebufferSizeCallback(this->windowHandle,
+			[](GLFWwindow* window, int width, int height)
+			{
+				callback_static(window, width, height);
+			});
+
+		this->isGLADInitialized = true;
+	}
+
+	// Begin Render.
+	this->BeginRender();
+
 	// Poll events.
 	glfwPollEvents();
+}
+
+// CALLBACK:  Frame Buffer Resize.
+void Mel::GUI::UIWindow::CB_OnFrameBufferResize(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, (GLsizei)width, (GLsizei)height);
+}
+
+// Internal Render function.
+void Mel::GUI::UIWindow::BeginRender()
+{
+	// If render timer (FPS) hasn't reached, skip.
+	this->timeNow = glfwGetTime();
+	if (this->timeNow - this->timePrev < (1.0 / this->FPS))
+		return;
+	// Update previous time.
+	this->timePrev = this->timeNow;
+
+	////////////////////////////// RENDERING SECTION //////////////////////////////
+
+	// Swap front and back buffers.
+	glfwSwapBuffers(this->windowHandle);
+
+	// Clear color.
+	glClearColor(0.05f, 0.47f, 0.54f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	///////////////////////////////////////////////////////////////////////////////
 }

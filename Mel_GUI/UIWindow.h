@@ -22,7 +22,6 @@ namespace						Mel
 {
 	namespace					GUI
 	{
-		
 		// A class for creating a GLFW GUI window.
 		class					UIWindow
 		{
@@ -40,12 +39,27 @@ namespace						Mel
 			// Number of created UIWindowObjects.
 			static	unsigned int	count_UIWindows;
 
+			// Is GLAD initialized?
+			bool					isGLADInitialized;
+
 			//// Window properties. ////
 			// Size of window.
 			int						window_X;
 			int						window_Y;
 			int						window_Width;
 			int						window_Height;
+
+			// CALLBACK:  Frame Buffer Resize.
+			void __stdcall CB_OnFrameBufferResize(GLFWwindow* window, int width, int height);
+
+			// Timer variables.
+			double timeNow;
+			double timePrev;
+			double FPS;
+
+		protected:
+			// Internal Render function.
+			void BeginRender();
 
 		public:
 			// Default UIWindow ctor.
