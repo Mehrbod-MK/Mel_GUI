@@ -36,6 +36,8 @@ namespace Mel
 			float x, y, z;
 		} Point;
 
+		
+
 		// Base abstract class (inteface) for all UI objects. This class cannot be instantiated.
 		class UIBase
 		{

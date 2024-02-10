@@ -42,4 +42,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="default.mmkvertshd">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="default.mmkfragshd" />
+  </ItemGroup>
 </Project>
