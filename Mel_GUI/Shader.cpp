@@ -34,22 +34,7 @@ Mel::GUI::Shader::Shader(const char* vertexShaderFilePath, const char* fragmentS
 // Shader Dtor.
 Mel::GUI::Shader::~Shader()
 {
-    if (this->vertexShader_ID != NULL)
-    {
-        glDeleteShader(this->vertexShader_ID);
-        this->vertexShader_ID = NULL;
-    }
-
-    if (this->fragmentShader_ID != NULL)
-    {
-        glDeleteShader(this->fragmentShader_ID);
-        this->fragmentShader_ID = NULL;
-    }
-
-    if (this->shaderProgram_ID != NULL)
-    {
-        glDeleteProgram(this->shaderProgram_ID);
-    }
+    this->Dispose();
 }
 
 // Load Vertex Shader.
@@ -105,4 +90,26 @@ void Mel::GUI::Shader::checkShaderCompilationErrors(GLuint shader, std::string t
 void Mel::GUI::Shader::Use()
 {
     glUseProgram(this->shaderProgram_ID);
+}
+
+// Releases all allocated resources by Shader object.
+void Mel::GUI::Shader::Dispose()
+{
+    if (this->vertexShader_ID != NULL)
+    {
+        glDeleteShader(this->vertexShader_ID);
+        this->vertexShader_ID = NULL;
+    }
+
+    if (this->fragmentShader_ID != NULL)
+    {
+        glDeleteShader(this->fragmentShader_ID);
+        this->fragmentShader_ID = NULL;
+    }
+
+    if (this->shaderProgram_ID != NULL)
+    {
+        glDeleteProgram(this->shaderProgram_ID);
+        this->shaderProgram_ID = NULL;
+    }
 }

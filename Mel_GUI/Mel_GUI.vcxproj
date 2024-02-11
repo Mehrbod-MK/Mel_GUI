@@ -160,6 +160,7 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="Diagnostic.h" />
+    <ClInclude Include="Primitive.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="UIBase.h" />
     <ClInclude Include="UIWindow.h" />

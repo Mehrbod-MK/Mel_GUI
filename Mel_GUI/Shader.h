@@ -14,13 +14,15 @@
 //								C++ Library Includes.
 #include						<string>
 
+//								My includes.
+#include						"Common.h"
 
 namespace	Mel
 {
 	namespace	GUI
 	{
 		// Shader class, used to descibe how an object should be rendered down the graphics pipeline.
-		class Shader
+		class Shader : public Common::Mel_Object
 		{
 		private:
 
@@ -37,7 +39,7 @@ namespace	Mel
 			Shader(const char*, const char*);
 
 			// Shader Dtor.
-			~Shader();
+			virtual ~Shader();
 
 			// Load Vertex Shader.
 			void	Load_VertexShader(const char*);
@@ -47,6 +49,9 @@ namespace	Mel
 
 			// Use shader for render (called in RENDER LOOP).
 			void	Use();
+
+			// Releases all allocated resources by Shader object.
+			void	Dispose();
 		};
 	}
 }

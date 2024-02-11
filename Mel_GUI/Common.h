@@ -40,6 +40,15 @@ namespace Mel
 				return "";
 			}
 		};
+
+		// Base class for every normal-behaved object in MelNGin. This class cannot be instantiated.
+		class Mel_Object
+		{
+		public:
+
+			// Pure virtial method for releasing object's allocated resources.
+			virtual void Dispose() = 0;
+		};
 	}
 }
 
